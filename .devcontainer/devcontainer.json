@@ -1,0 +1,26 @@
+{
+  "name": "dev environment",
+  "dockerComposeFile": "compose.yaml",
+  "service": "dev",
+  "workspaceFolder": "/workspace",
+  "shutdownAction": "stopCompose",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bmewburn.vscode-intelephense-client",
+        "DEVSENSE.profiler-php-vscode",
+        "esbenp.prettier-vscode",
+        "mblode.twig-language-2",
+        "moetelo.twiggy",
+        "MrChetan.phpstorm-parameter-hints-in-vscode",
+        "aaron-bond.better-comments",
+        "usernamehw.errorlens",
+        "xabikos.JavaScriptSnippets",
+        "christian-kohler.path-intellisense",
+        "rexshi.phpdoc-comment-vscode-plugin",
+        "DEVSENSE.phptools-vscode"
+      ]
+    }
+  },
+  "forwardPorts": ["phpmyadmin:8102"]
+}

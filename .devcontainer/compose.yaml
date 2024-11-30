@@ -1,0 +1,61 @@
+services:
+  dev:
+    build:
+      context: ..
+      dockerfile: DockerFile
+
+    command: sleep infinity
+    volumes:
+      - ../.:/workspace
+    ports:
+      - 8000:8000
+
+    # Configure environment variables
+    environment:
+      XDEBUG_CONFIG: "client_host=127.0.0.1 client_port=9003"
+      PHP_IDE_CONFIG: "serverName=${APP_NAME}"
+      MAILER_DSN: "smtp://maildev:1025"
+      DATABASE_URL: "mysql://root:${MYSQL_ROOT_PASS}@db_server:3306/${MYSQL_DB}?serverVersion=11.2.4-MariaDB&charset=utf8mb4"
+    networks:
+      - symfony_app
+
+  # SGBD
+  db_server:
+    image: mariadb:11.2
+    container_name: "${APP_NAME}-db"
+    restart: always
+    ports:
+      - "33016:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASS}"
+
+    volumes:
+      - db_data:/var/lib/mysql
+
+    networks:
+      - symfony_app
+
+  # GUI SGBD
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8102:80
+    environment:
+      PMA_HOST: db_server
+    networks:
+      - symfony_app
+
+  # Mailer
+  maildev:
+    image: maildev/maildev
+    ports:
+      - "1080:1080"
+    networks:
+      - symfony_app
+
+networks:
+  symfony_app:
+
+volumes:
+  db_data:
