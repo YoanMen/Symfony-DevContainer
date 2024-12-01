@@ -8,7 +8,7 @@ services:
     volumes:
       - ../.:/workspace
     ports:
-      - 8000:8000
+      - 8001:8000
 
     # Configure environment variables
     environment:
@@ -40,7 +40,7 @@ services:
     image: phpmyadmin
     restart: always
     ports:
-      - 8102:80
+      - 8101:80
     environment:
       PMA_HOST: db_server
     networks:
@@ -50,7 +50,8 @@ services:
   maildev:
     image: maildev/maildev
     ports:
-      - "1080:1080"
+      - "1081:1080"
+      - "1026:1025"
     networks:
       - symfony_app
 

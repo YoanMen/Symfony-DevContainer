@@ -21,6 +21,5 @@
         "DEVSENSE.phptools-vscode"
       ]
     }
-  },
-  "forwardPorts": ["phpmyadmin:8102"]
+  }
 }
