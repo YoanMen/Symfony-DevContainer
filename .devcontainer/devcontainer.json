@@ -8,7 +8,6 @@
     "vscode": {
       "extensions": [
         "bmewburn.vscode-intelephense-client",
-        "DEVSENSE.profiler-php-vscode",
         "esbenp.prettier-vscode",
         "mblode.twig-language-2",
         "moetelo.twiggy",
@@ -18,7 +17,7 @@
         "xabikos.JavaScriptSnippets",
         "christian-kohler.path-intellisense",
         "rexshi.phpdoc-comment-vscode-plugin",
-        "DEVSENSE.phptools-vscode"
+        "MehediDracula.php-namespace-resolver"
       ]
     }
   }
