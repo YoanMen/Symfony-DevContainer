@@ -19,10 +19,10 @@ new-project: ## Initialize a new Symfony project
 	response=$${response:-y}; \
 	if [ "$$response" = "y" ]; then \
 		echo "$(COLOUR_BLUE)Creating a new Symfony web app project...$(END_COLOUR)"; \
-		symfony new new_project --webapp; \
+		symfony new new_project --version=6.4 --webapp; \
 	elif [ "$$response" = "n" ]; then \
 		echo "$(COLOUR_BLUE)Creating a new Symfony microservice, console application, or API...$(END_COLOUR)"; \
-		symfony new new_project; \
+		symfony new new_project --version=6.4 ; \
 	else \
 		echo ""; \
 		echo "$(COLOUR_RED)Invalid input, please enter y or n.$(END_COLOUR)"; \
